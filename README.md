@@ -6,12 +6,15 @@ systemctl enable mariadb
 systemctl start mariadb
 
 # Set Environmental Variables
+```bash
 DBName=ec2db
 DBPassword=admin123456
 DBRootPassword=admin123456
 DBUser=ec2dbuser
 
 # Database Setup on EC2 Instance:
+```bash
+
 echo "CREATE DATABASE ${DBName};" >> /tmp/db.setup
 echo "CREATE USER '${DBUser}' IDENTIFIED BY '${DBPassword}';" >> /tmp/db.setup
 echo "GRANT ALL PRIVILEGES ON *.* TO '${DBUser}'@'%';" >> /tmp/db.setup
@@ -21,6 +24,7 @@ mysql -u root --password="${DBRootPassword}" < /tmp/db.setup
 rm /tmp/db.setup
 
 # Adding some dummy data to the Database inside EC2 Instance:
+```bash
 mysql -u root --password="${DBRootPassword}"
 USE ec2db;
 CREATE TABLE table1 (id INT, name VARCHAR(45));
