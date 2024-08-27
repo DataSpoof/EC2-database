@@ -19,6 +19,7 @@ DBUser=ec2dbuser
 ```bash
 
 echo "CREATE DATABASE ${DBName};" >> /tmp/db.setup
+
 echo "CREATE USER '${DBUser}' IDENTIFIED BY '${DBPassword}';" >> /tmp/db.setup
 echo "GRANT ALL PRIVILEGES ON *.* TO '${DBUser}'@'%';" >> /tmp/db.setup
 echo "FLUSH PRIVILEGES;" >> /tmp/db.setup
@@ -40,6 +41,7 @@ SELECT * FROM table1;
 # Migration of Database in EC2 Instance to RDS Database:
 ```bash
 mysqldump -u root -p ec2db > ec2db.sql
+ls -lr
 mysql -h <replace-rds-end-point-here> -P 3306 -u rdsuser -p rdsdb < ec2db.sql
 mysql -h <replace-rds-end-point-here> -P 3306 -u rdsuser -p
 USE rdsdb
