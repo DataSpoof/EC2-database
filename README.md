@@ -42,8 +42,8 @@ SELECT * FROM table1;
 ```bash
 mysqldump -u root -p ec2db > ec2db.sql
 ls -lr
-mysql -h <replace-rds-end-point-here> -P 3306 -u rdsuser -p rdsdb < ec2db.sql
-mysql -h <replace-rds-end-point-here> -P 3306 -u rdsuser -p
+mysql -h <replace-rds-end-point-here> -P 3306 -u admin -p rdsdb < ec2db.sql
+mysql -h <replace-rds-end-point-here> -P 3306 -u admin -p
 USE rdsdb
 SELECT * FROM table1;
 ```
