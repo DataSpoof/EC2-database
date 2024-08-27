@@ -1,3 +1,5 @@
+sudo su -
+
 # EC2-database
 ```bash
 yum list mariadb*
